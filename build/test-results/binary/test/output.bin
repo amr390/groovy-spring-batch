@@ -1,0 +1,11 @@
+g2015-05-12 16:35:05,947 [Test worker] [INFO] example.ExampleItemWriter - Writing chunk: [hello, workd]
+w2015-05-12 16:35:05,964 [Test worker] [INFO] example.ExampleItemWriter - Writing chunk: [42, java.lang.Object@d90849b]
+]2015-05-12 16:35:05,968 [Test worker] [INFO] example.ExampleItemWriter - Writing chunk: null
+“2015-05-12 16:35:06,532 [Test worker] [WARN] org.springframework.context.annotation.ConfigurationClassEnhancer - @Bean method StepScopeConfiguration.stepScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean Javadoc for complete details
+¯2015-05-12 16:35:07,528 [Test worker] [INFO] org.springframework.batch.core.repository.support.JobRepositoryFactoryBean - No database type set, using meta data indicating: H2
+±2015-05-12 16:35:07,699 [Test worker] [INFO] org.springframework.batch.core.launch.support.SimpleJobLauncher - No TaskExecutor has been set, defaulting to synchronous executor.
+º2015-05-12 16:35:07,744 [Test worker] [INFO] org.springframework.batch.core.launch.support.SimpleJobLauncher - Job: [SimpleJob: [name=job1]] launched with the following parameters: [{}]
+|2015-05-12 16:35:07,762 [Test worker] [INFO] org.springframework.batch.core.job.SimpleStepHandler - Executing step: [step1]
+`2015-05-12 16:35:07,777 [Test worker] [INFO] example.ExampleItemWriter - Writing chunk: [hello]
+`2015-05-12 16:35:07,780 [Test worker] [INFO] example.ExampleItemWriter - Writing chunk: [world]
+á2015-05-12 16:35:07,788 [Test worker] [INFO] org.springframework.batch.core.launch.support.SimpleJobLauncher - Job: [SimpleJob: [name=job1]] completed with the following parameters: [{}] and the following status: [COMPLETED]

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="example.ExampleItemWriterSpec" tests="1" skipped="0" failures="0" errors="0" timestamp="2015-05-12T14:35:05" hostname="asaitec-amr" time="0.921">
+  <properties/>
+  <testcase name="write outputs" classname="example.ExampleItemWriterSpec" time="0.921"/>
+  <system-out><![CDATA[2015-05-12 16:35:05,947 [Test worker] [INFO] example.ExampleItemWriter - Writing chunk: [hello, workd]
+2015-05-12 16:35:05,964 [Test worker] [INFO] example.ExampleItemWriter - Writing chunk: [42, java.lang.Object@d90849b]
+2015-05-12 16:35:05,968 [Test worker] [INFO] example.ExampleItemWriter - Writing chunk: null
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

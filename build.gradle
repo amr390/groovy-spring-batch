@@ -1,0 +1,65 @@
+
+apply plugin: 'jacoco'
+apply plugin: 'groovy'
+apply plugin: 'application'
+apply plugin: 'codenarc'
+
+repositories {
+    mavenCentral()
+    maven { url 'http://repo.spring.io/milestone' }
+}
+
+dependencies {
+    final SPRING_VERSION = '4.0.0.RELEASE'
+    final BATCH_VERSION = '3.0.0.M2'
+    final SPOCK_VERSION = '0.7-groovy-2.0'
+    final LOGBACK_VERSION = '1.0.13'
+    final SLF4J_VERSION = '1.7.5'
+
+    // use the indy jars (java 7 only!)
+    compile 'org.codehaus.groovy:groovy:2.2.1:indy'
+
+    compile "org.springframework.batch:spring-batch-core:$BATCH_VERSION"
+    compile "org.springframework:spring-tx:$SPRING_VERSION"
+    compile "org.springframework:spring-jdbc:$SPRING_VERSION"
+    compile "com.jolbox:bonecp-spring:0.8.0.RELEASE"
+    compile "com.h2database:h2:1.3.174"
+
+    compile "ch.qos.logback:logback-classic:$LOGBACK_VERSION"
+    compile "org.slf4j:jcl-over-slf4j:$SLF4J_VERSION"
+
+    testCompile "org.spockframework:spock-core:$SPOCK_VERSION"
+    testCompile "org.spockframework:spock-spring:$SPOCK_VERSION"
+    testCompile "org.springframework.batch:spring-batch-test:$BATCH_VERSION"
+    testCompile "org.springframework:spring-test:$SPRING_VERSION"
+}
+
+mainClassName = 'org.springframework.batch.core.launch.support.CommandLineJobRunner'
+
+run {
+    args 'example.ExampleConfiguration', 'job1'
+}
+
+task wrapper(type:Wrapper){
+    gradleVersion = '1.10'
+}
+
+codenarc{
+    configFile = new File("${project.projectDir.absolutePath}/gradle/codenarc/ruleset.groovy")
+
+    // consumed by jenkins Violations plugin
+    reportFormat= 'xml'
+
+    // don't let codenarc violations fail the build
+    tasks.withType(CodeNarc).all { codeNarcTask ->
+        codeNarcTask.ignoreFailures = true
+    }
+}
+
+jacocoTestReport{
+    reports {
+        xml.enabled true
+        csv.enabled false
+        //html.destination "$buildDir/jacocoHtml"
+    }
+}
